@@ -1,40 +1,38 @@
 -- ****************** SqlDBM: MySQL ******************;
 -- ***************************************************;
 
-DROP TABLE `basket_has_products`;
+DROP TABLE IF EXISTS `basket_has_products`;
 
 
-DROP TABLE `comments`;
+DROP TABLE IF EXISTS `comments`;
 
 
-DROP TABLE `baskets`;
+DROP TABLE IF EXISTS `baskets`;
 
 
-DROP TABLE `product_has_categories`;
+DROP TABLE IF EXISTS `product_has_categories`;
 
 
-DROP TABLE `users`;
+DROP TABLE IF EXISTS `users`;
 
 
-DROP TABLE `address`;
+DROP TABLE IF EXISTS `address`;
 
 
-DROP TABLE `categories`;
+DROP TABLE IF EXISTS `categories`;
 
 
-DROP TABLE `products`;
-
-
+DROP TABLE IF EXISTS `products`;
 
 -- ************************************** `address`
 
 CREATE TABLE `address`
 (
- `id_address`  NOT NULL ,
- `street`     VARCHAR(255) NOT NULL ,
- `zipcode`    VARCHAR(45) NOT NULL ,
- `city`       VARCHAR(45) NOT NULL ,
- `country`    VARCHAR(45) NOT NULL ,
+ `id_address`  INT NOT NULL AUTO_INCREMENT,
+ `street`     VARCHAR(255)  NOT NULL ,
+ `zipcode`    VARCHAR(45)  NOT NULL ,
+ `city`       VARCHAR(45)  NOT NULL ,
+ `country`    VARCHAR(45)  NOT NULL ,
 
 PRIMARY KEY (`id_address`)
 );
@@ -47,7 +45,7 @@ PRIMARY KEY (`id_address`)
 
 CREATE TABLE `categories`
 (
- `id_category`  NOT NULL ,
+ `id_category` INT NOT NULL AUTO_INCREMENT,
  `name`        VARCHAR(45) NOT NULL ,
  `description` TEXT NOT NULL ,
 
@@ -62,7 +60,7 @@ PRIMARY KEY (`id_category`)
 
 CREATE TABLE `products`
 (
- `id_product`   NOT NULL ,
+ `id_product`  INT NOT NULL AUTO_INCREMENT,
  `name`        VARCHAR(45) NOT NULL ,
  `description` TEXT NOT NULL ,
  `price`       DOUBLE NOT NULL ,
@@ -80,9 +78,9 @@ PRIMARY KEY (`id_product`)
 
 CREATE TABLE `product_has_categories`
 (
- `id_product_has_category`  NOT NULL ,
- `id_product`               NOT NULL ,
- `id_category`              NOT NULL ,
+ `id_product_has_category`  INT NOT NULL AUTO_INCREMENT ,
+ `id_product`               INT NOT NULL ,
+ `id_category`              INT NOT NULL ,
 
 PRIMARY KEY (`id_product_has_category`),
 KEY `fkIdx_98` (`id_product`),
@@ -99,12 +97,13 @@ CONSTRAINT `FK_102` FOREIGN KEY `fkIdx_102` (`id_category`) REFERENCES `categori
 
 CREATE TABLE `users`
 (
- `id_user`     NOT NULL ,
+ `id_user`    INT NOT NULL AUTO_INCREMENT ,
  `passwd`     LONGTEXT NOT NULL ,
  `name`       VARCHAR(45) NOT NULL ,
  `first_name` VARCHAR(45) NOT NULL ,
  `email`      VARCHAR(254) NOT NULL ,
- `id_address`  NOT NULL ,
+ `is_user`	  TINYINT(1),
+ `id_address`  INT NOT NULL ,
 
 PRIMARY KEY (`id_user`),
 KEY `fkIdx_58` (`id_address`),
@@ -119,10 +118,10 @@ CONSTRAINT `FK_58` FOREIGN KEY `fkIdx_58` (`id_address`) REFERENCES `address` (`
 
 CREATE TABLE `comments`
 (
- `id_comment`  NOT NULL ,
+ `id_comment`  INT NOT NULL AUTO_INCREMENT,
  `str`        TEXT NOT NULL ,
- `id_product`  NOT NULL ,
- `id_user`     NOT NULL ,
+ `id_product`  INT NOT NULL ,
+ `id_user`     INT NOT NULL ,
 
 PRIMARY KEY (`id_comment`),
 KEY `fkIdx_106` (`id_product`),
@@ -139,8 +138,8 @@ CONSTRAINT `FK_110` FOREIGN KEY `fkIdx_110` (`id_user`) REFERENCES `users` (`id_
 
 CREATE TABLE `baskets`
 (
- `id_basket`    NOT NULL ,
- `id_user`      NOT NULL ,
+ `id_basket`     INT NOT NULL AUTO_INCREMENT,
+ `id_user`      INT NOT NULL ,
  `date_create` DATETIME NOT NULL ,
  `is_bought`   TINYINT(1) NOT NULL ,
  `total`       DOUBLE NOT NULL ,
@@ -158,9 +157,9 @@ CONSTRAINT `FK_46` FOREIGN KEY `fkIdx_46` (`id_user`) REFERENCES `users` (`id_us
 
 CREATE TABLE `basket_has_products`
 (
- `id_basket_has_product`  NOT NULL ,
- `id_basket`              NOT NULL ,
- `id_product`             NOT NULL ,
+ `id_basket_has_product`  INT NOT NULL AUTO_INCREMENT ,
+ `id_basket`              INT NOT NULL ,
+ `id_product`             INT NOT NULL ,
 
 PRIMARY KEY (`id_basket_has_product`),
 KEY `fkIdx_86` (`id_basket`),
