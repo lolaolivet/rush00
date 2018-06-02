@@ -5,9 +5,34 @@ body{
   justify-content:space-around;
 }
 
+.title-admin {
+  font-size : 35px;
+  min-width:100%;
+  text-align: center;
+}
+
 .square-admin{
-    width:23vw; height:23vw;
+    width:30vw; height:15vw;
     margin:1vw 0;
     background:grey;
     text-align : center;
 }
+
+.square-admin .list {
+  font-size : 25px;
+  text-align : left;
+}
+
+.square-admin a:link {
+  color: #4e5560;
+}
+.square-admin a:visited {
+  color: #4e5560;
+}
+.square-admin a:hover {
+  color: #979ca3;
+}
+.gen-listing {
+  min-width: 100%;
+  text-align: left;
+ }
