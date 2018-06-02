@@ -1,0 +1,13 @@
+body{
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+
+.square-admin{
+    width:23vw; height:23vw;
+    margin:1vw 0;
+    background:grey;
+    text-align : center;
+}
