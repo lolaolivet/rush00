@@ -7,11 +7,11 @@ foreach ($file as $line)
 {
   if (substr($line, 0, 2) == '--' || $line == '')
       continue;
-  $templine .= $line;
+  $tmp .= $line;
   if (substr(trim($line), -1, 1) == ';')
   {
-    mysqli_query($sql, $templine) or print('Errer en traitant la requete \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
-    $templine = '';
+    mysqli_query($sql, $tmp) or print('Errer en traitant la requete \'<strong>' . $tmp . '\': ' . mysqli_error($sql) . '<br /><br />');
+    $tmp = '';
   }
 }
 echo "Tables imported successfully";

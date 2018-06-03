@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include("../../includes/connect_sql.php");
   if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0 && isset($_GET['del']) && $_GET['del'] == 1) {
     sql_del_user($_GET['id']);

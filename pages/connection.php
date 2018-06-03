@@ -32,8 +32,8 @@ if (isset($_POST['submit']))
         if ($data = auth($login, $passwd)) {
             $_SESSION['loggued_on_user'] = $login;
             $_SESSION['id_user'] = $data['id_user'];
-            if ($data['is_user'] === 0)
-                header('Location: admin.php');
+            if ($data['is_user'] == 0)
+                header('Location: ../admin/index.php');
             else
                 header('Location: ../index.php');
             return (1);

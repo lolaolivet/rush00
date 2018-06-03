@@ -46,7 +46,7 @@ if (isset($_GET) && isset($_GET['article']))
             <li><a href="#">Panier</a></li>
             <?php
             if (isset($_SESSION) && isset($_SESSION['loggued_on_user']))
-                echo "<li><a href='logout.php'>Déconnection</a></li>
+                echo "<li><a href='logout.php'>Déconnexion</a></li>
                         <li><a href='modif_passwd.php'>Modifier mot de passe</a></li>";
             else
             {

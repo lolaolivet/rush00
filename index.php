@@ -2,7 +2,9 @@
 
 include('includes/get_request.php');
 session_start();
+header("Location: pages/articles.php");
 
+exit;
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +59,7 @@ session_start();
                 echo "<div class='one'>
                         <a href=?id=" . $e['id_product'] . ">
                         <h2>" . $e['name'] . "</h2>
-                        <img src='../img/" . $e['image'] . "'/></a>
+                        <img src='" . $e['image'] . "'/></a>
                         <a href=?article=".$e['id_product']." class='indabasket'><img class='buy' src='img/basket.png'></a>
                     </div>";
             }

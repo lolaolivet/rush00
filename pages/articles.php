@@ -2,10 +2,10 @@
 
 include('../includes/get_request.php');
 session_start();
-if (!isset($_SESSION['panier']) || !isset($_GET['article'])) {
+if (!(isset($_SESSION['panier']))) {
     $_SESSION['panier'] = array();
 }
-else
+if (isset($_GET) && isset($_GET['article']))
 {
     $_SESSION['panier'][] = $_GET['article'];
 }
@@ -41,7 +41,7 @@ else
             <li><a href="basket.php">Panier</a></li>
             <?php
             if (isset($_SESSION) && isset($_SESSION['loggued_on_user']))
-                echo "<li><a href='logout.php'>Déconnection</a></li>
+                echo "<li><a href='logout.php'>Déconnexion</a></li>
                         <li><a href='modif_passwd.php'>Modifier mot de passe</a></li>";
             else
             {
@@ -72,7 +72,7 @@ else
                     echo "<div class='one'>
                         <a href=?id=" . $e['id_product'] . ">
                         <h2>" . $e['name'] . "</h2>
-                        <img src='../img/" . $e['image'] . "'/></a>
+                        <img src='" . $e['image'] . "'/></a>
                         <a href=?article=".$e['id_product']." class='indabasket'><img class='buy' src='../img/basket.png'></a>
                     </div>";
                 }

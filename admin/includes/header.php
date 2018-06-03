@@ -1,6 +1,6 @@
 <?php
 include("get_request.php");
-
+session_start();
 ?>
 
 <!DOCTYPE html>
