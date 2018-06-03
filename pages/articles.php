@@ -1,7 +1,14 @@
 <?php
 
-include('../includes/get_request.php')
-
+include('../includes/get_request.php');
+session_start();
+if (!isset($_SESSION['panier']) || !isset($_GET['article'])) {
+    $_SESSION['panier'] = array();
+}
+else
+{
+    $_SESSION['panier'][] = $_GET['article'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,13 +21,12 @@ include('../includes/get_request.php')
 </head>
 <body>
 <div class="header">
-    <h1>E-commerce</h1>
 </div>
 <div>
     <nav>
         <ul class="menu">
             <li><a href="../index.php">Accueil</a></li>
-            <li><a href="#" id="articles">Articles</a></li>
+            <li><a href="articles.php" id="articles">Articles</a></li>
             <li><a href="#">Catégories</a>
                 <ul>
                     <?php
@@ -33,8 +39,16 @@ include('../includes/get_request.php')
                 </ul>
             </li>
             <li><a href="basket.php">Panier</a></li>
-            <li><a href="connection.php">Connexion</a></li>
-            <li><a href="create.php">Créer compte</a></li>
+            <?php
+            if (isset($_SESSION) && isset($_SESSION['loggued_on_user']))
+                echo "<li><a href='logout.php'>Déconnection</a></li>
+                        <li><a href='modif_passwd.php'>Modifier mot de passe</a></li>";
+            else
+            {
+                echo "<li><a href='connection.php'>Connexion</a></li>
+                          <li><a href='create.php'>Créer compte</a></li>";
+            }
+            ?>
         </ul>
     </nav>
 </div>
@@ -46,27 +60,42 @@ include('../includes/get_request.php')
         <?php
             $articles = [];
             if (!(isset($_GET['category']) && $_GET['category'] > 0)) {
-                echo "Pas de category";
                 $articles = get_articles();
             }
             else {
-                echo "Owi des categories !";
                 $articles = get_articles_category($_GET['category']);
-                echo "Et la ?";
             }
 
             foreach ($articles as $e)
             {
-                print_r($e);
-                echo "<a href=?id=".$e['id_product']."><h2>".$e['name']."</h2></a>";
+                if ($e['stock'] != 0) {
+                    echo "<div class='one'>
+                        <a href=?id=" . $e['id_product'] . ">
+                        <h2>" . $e['name'] . "</h2>
+                        <img src='../img/" . $e['image'] . "'/></a>
+                        <a href=?article=".$e['id_product']." class='indabasket'><img class='buy' src='../img/basket.png'></a>
+                    </div>";
+                }
             }
         ?>
     </div>
     <?php }
         else { ?>
             <div class="one_article"><?php
+                    $comment = get_comments_article($_GET['id']);
                     $art = get_one_article($_GET['id']);
-                    echo "<h2>".$art['name']."</h2><br/><p>".$art['description']."</p>";
+                    echo "<h2>".$art['name']."</h2>
+                            <p>".$art['description']."</p>
+                            <a href=?article=".$art['id_product']." class='indabasket'><img class='buy' src='../img/basket.png'></a>
+                            <div class='comments'>";
+                    foreach ($comment as $e)
+                    {
+                        echo "<div class='one_comment'>
+                                <p>".$e['str']."</p>
+                                <span><i>".$e['email']."</i></span>
+                                </div>";
+                    }
+                    echo"</div>";
                 ?></div>
 
       <?php  }?>
