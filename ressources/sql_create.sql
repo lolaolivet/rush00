@@ -47,7 +47,7 @@ CREATE TABLE `products`
  `description` TEXT NOT NULL ,
  `price`       DOUBLE NOT NULL ,
  `stock`       INT NOT NULL ,
- `image`       VARCHAR(255) NOT NULL ,
+ `image`       LONGTEXT NOT NULL ,
 
 PRIMARY KEY (`id_product`)
 );
@@ -90,9 +90,7 @@ CREATE TABLE `users`
  `city`       VARCHAR(45)  NOT NULL ,
  `country`    VARCHAR(45)  NOT NULL ,
 
-PRIMARY KEY (`id_user`),
-KEY `fkIdx_58` (`id_address`),
-CONSTRAINT `FK_58` FOREIGN KEY `fkIdx_58` (`id_address`) REFERENCES `address` (`id_address`)
+PRIMARY KEY (`id_user`)
 );
 
 
@@ -125,7 +123,7 @@ CREATE TABLE `baskets`
 (
  `id_basket`     INT NOT NULL AUTO_INCREMENT,
  `id_user`      INT NOT NULL ,
- `date_create` DATETIME NOT NULL ,
+ `date_create` INT NOT NULL ,
  `is_bought`   TINYINT(1) NOT NULL ,
  `total`       DOUBLE NOT NULL ,
 
