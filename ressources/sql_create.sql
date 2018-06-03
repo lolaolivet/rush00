@@ -16,28 +16,10 @@ DROP TABLE IF EXISTS `product_has_categories`;
 DROP TABLE IF EXISTS `users`;
 
 
-DROP TABLE IF EXISTS `address`;
-
-
 DROP TABLE IF EXISTS `categories`;
 
 
 DROP TABLE IF EXISTS `products`;
-
--- ************************************** `address`
-
-CREATE TABLE `address`
-(
- `id_address`  INT NOT NULL AUTO_INCREMENT,
- `street`     VARCHAR(255)  NOT NULL ,
- `zipcode`    VARCHAR(45)  NOT NULL ,
- `city`       VARCHAR(45)  NOT NULL ,
- `country`    VARCHAR(45)  NOT NULL ,
-
-PRIMARY KEY (`id_address`)
-);
-
-
 
 
 
@@ -103,7 +85,10 @@ CREATE TABLE `users`
  `first_name` VARCHAR(45) NOT NULL ,
  `email`      VARCHAR(254) NOT NULL ,
  `is_user`	  TINYINT(1),
- `id_address`  INT NOT NULL ,
+  `street`     VARCHAR(255)  NOT NULL ,
+ `zipcode`    VARCHAR(45)  NOT NULL ,
+ `city`       VARCHAR(45)  NOT NULL ,
+ `country`    VARCHAR(45)  NOT NULL ,
 
 PRIMARY KEY (`id_user`),
 KEY `fkIdx_58` (`id_address`),

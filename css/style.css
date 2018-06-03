@@ -6,12 +6,20 @@ h1
 
 nav
 {
-    border-bottom: 1px solid #eb566a;
+    border-bottom: 1px solid #333133;
+}
+
+label
+{
+    color: #333133;
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
 }
 
 .header
 {
     margin: auto;
+    display: block;
     background-image: url('../img/7jUr.gif');
     width:100%;
     height: 300px;
@@ -67,4 +75,70 @@ nav
 .menu li:hover ul
 {
     max-height: 15em;
+}
+
+.menu ul li a:hover
+{
+    background-color: #333133;
+    color: whitesmoke;
+}
+
+.content
+{
+    width: 100%;
+    margin: 20px auto;
+}
+
+.new_products
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.connect
+{
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #898789;
+    height: 100%;
+}
+
+form
+{
+    margin: auto;
+    width: 40%;
+}
+
+.row
+{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 30px;
+}
+
+input[type=submit]
+{
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 1px 1px #898789;
+    background-color: #E8FBE8;
+    position: absolute;
+    right: 25%;
+    height: 40px;
+    width: 100px;
+}
+
+.col_left
+{
+    float: left;
+}
+
+.col_right
+{
+    float: right;
 }
