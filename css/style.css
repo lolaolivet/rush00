@@ -6,17 +6,32 @@ h1
 
 nav
 {
-    border-bottom: 1px solid #eb566a;
+    border-bottom: 1px solid #333133;
+}
+
+label
+{
+    color: #333133;
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+}
+
+.buy
+{
+    margin-top: 10px;
+    width: 35px     !important;
 }
 
 .header
 {
     margin: auto;
+    display: block;
     background-image: url('../img/7jUr.gif');
     width:100%;
     height: 300px;
     background-repeat: no-repeat;
     background-color: #161416;
+    background-position: 50% 50%;
 }
 
 .menu, .menu ul
@@ -67,4 +82,150 @@ nav
 .menu li:hover ul
 {
     max-height: 15em;
+}
+
+.menu ul li a:hover
+{
+    background-color: #333133;
+    color: whitesmoke;
+}
+
+.content
+{
+    width: 100%;
+    margin: 20px auto;
+}
+
+.new_products
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.connect
+{
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #898789;
+    height: 100%;
+}
+
+form
+{
+    margin: auto;
+    width: 40%;
+}
+
+form span a
+{
+    text-decoration: none;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    color: red;
+}
+
+.row
+{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 30px;
+}
+
+input[type=submit]
+{
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 1px 1px #898789;
+    background-color: #E8FBE8;
+    position: absolute;
+    right: 25%;
+    height: 40px;
+    width: 100px;
+    bottom: -10px;
+}
+
+.col_left
+{
+    float: left;
+}
+
+.col_right
+{
+    float: right;
+}
+
+.articles
+{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.indabasket
+{
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 3px;
+    border: 1px solid whitesmoke;
+    box-shadow: 1px 1px 1px #898789;
+    position: absolute;
+    bottom: 20px;
+    left: 40%;
+    height: 60px;
+    width: 60px;
+}
+
+.one
+{
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+    height: 350px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 1px 3px #898789;
+}
+
+.one a
+{
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: #333133;
+}
+
+.one img
+{
+    width: 200px;
+}
+
+.one_article
+{
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    text-align: center;
+    margin: 20px auto;
+    height: 450px;
+    width: 80%;
+    padding: 20px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 1px 3px #898789;
+}
+
+.one_article img
+{
+
+}
+
+.one_pdt
+{
+    margin-top: 30px;
 }
