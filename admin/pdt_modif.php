@@ -7,6 +7,10 @@
     if ($_GET['error'] == 2)
       echo "Erreur : Il manque des donnees ( Image ? )";
   }
+  if (!isset($_GET['id'])) {
+    header("Location: pdt_list.php");
+    exit ;
+  }
 ?>
     <div class="admin-panel">
       <form method="POST" action="process/pdt.php" enctype="multipart/form-data">
@@ -25,8 +29,8 @@
           <input type="checkbox" name="cat[]" value="<?php echo $v['id_category']?>">
           <label for="coding"><?php echo $v['name'];?></label><br>
         <?php }?>
-        <input type="hidden" name="add" value="1">
-        <input type="submit" value="Add Product">
+        <input type="hidden" name="modif" value="<?php echo $_GET['id']; ?>">
+        <input type="submit" value="Modifier Produit">
       </form>
     </div>
 

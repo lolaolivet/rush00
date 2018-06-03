@@ -1,5 +1,8 @@
 <?php
 include("../includes/connect_sql.php");
+foreach ($_POST as $key => $value) {
+    echo "$key: $value\n";
+}
 
 function get_users()
 {
@@ -16,27 +19,27 @@ function get_users()
 
 function get_categories()
 {
-   $category = [];
+   $categories = [];
    $connection = db_connect();
    $res = mysqli_query($connection, 'SELECT * FROM categories');
    while ($data = mysqli_fetch_assoc($res))
    {
-       $users [] = $data;
+       $categories [] = $data;
    }
    mysqli_free_result($res);
-   return ($users);
+   return ($categories);
 }
 
 function get_products()
 {
-   $users= [];
+   $pdts= [];
    $connection = db_connect();
    $res = mysqli_query($connection, 'SELECT * FROM products');
    while ($data = mysqli_fetch_assoc($res))
    {
-       $users [] = $data;
+       $pdts [] = $data;
    }
    mysqli_free_result($res);
-   return ($users);
+   return ($pdts);
 }
 ?>

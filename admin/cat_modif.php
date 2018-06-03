@@ -11,8 +11,8 @@
         <input type="text" name="name" value=""><br>
         Description:<br>
         <textarea name="description" rows=5 cols=40></textarea><br><br>
-        <input type="hidden" name="add" value="1">
-        <input type="submit" value="Add Category">
+        <input type="hidden" name="modif" value="<?php echo $_GET['id']; ?>">
+        <input type="submit" value="Modifier Category">
       </form>
     </div>
 
