@@ -1,9 +1,10 @@
 <?php
 
-require_once("./settings.php");
+include("settings.php");
 
 function db_connect() {
-  $connection = mysqli_connect($sql_host, $sql_user, $sql_pw, $sql_base);
+  $sql = getInfoSql();
+  $connection = mysqli_connect($sql['host'], $sql['user'], $sql['pw'], $sql['base']);
 
   if (mysqli_connect_errno()) {
 	    printf("Échec de la connexion : %s\n", mysqli_connect_error());

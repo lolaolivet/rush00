@@ -1,8 +1,11 @@
 <?php
 
-$sql_host = "localhost";
-$sql_user = "root";
-$sql_pw = "miaou123";
-$sql_base = "ecommerce";
+function getInfoSql() {
+$sql['host'] = "localhost";
+$sql['user'] = "root";
+$sql['pw'] = "miaou123";
+$sql['base'] = "ecommerce";
+  return $sql;
+}
 
 ?>
